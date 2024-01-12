@@ -1,0 +1,83 @@
+Difference between Apt and Aptitude:
+	Apt:
+		- Apt is a CLI based package management tool that allows users with the correct permissions to install different packages from apt repositories.
+		- It is generally for more advanced linux users.
+
+	Aptitude:
+		- Aptitude is a text-based package management that has a text-base GUI that is easy to navigate.
+		- It has automatic package suggestions for install and removal.
+
+Why i chose Debian for my VM:
+		- I chose debian because it is easier to use and better to configure for personal use over rocky.
+
+Difference between Debian and Rocky:
+	Debian:
+		- It supports multiple architectures compared to other distros.
+		- It is easier to update from one stable to a new version.
+		- It uses apt / aptitude as its package manager.
+		- It uses AppArmor as its shipped security module.
+		- It has a slower release cycle of 2 years.
+	Rocky:
+		- It is best to install a fresh version of rocky when an update is released.
+		- It uses yum as its package manager.
+		- It uses SELinux as its shipped security module.
+		- It has a faster release cycle of 6 months.
+		- It doesn't as much architecture support.
+		
+AppArmor:
+		- AppArmor is a mandatory access control security module.
+		- It is shipped with debian.
+		- Its purpose is to prevent harm to the OS from internal or external programs.
+  
+What is SSH (Secure Shell):
+		- SSH is a protocol that provides secure communication over untrusted networks.
+		- Allows users to access remote machines securely, execute commands, and transfer files.
+		- It ensures confidentiality, integrity, and authentication in network communications.
+  
+What is UFW (Uncomplicated Firewall):
+		- UFW is a user-friendly command-line interface for configuring iptables.
+		- It provides a simplified way to manage firewall rules on Linux systems.
+		- It enhances security by controlling network traffic.
+  
+What is LVM (Logical Volume Manager):
+		- LVM allows for very flexible disk space management.
+		- It provides the ability to add disk space to a logical volume and its filesystem while that file system is mounted and active.
+		- It allows for multiple physical drives to be grouped into one volume on the system.
+  
+What is a VM (Virtual Machine):
+		- Virtual machines allow multiple operating systems to coexist on a single physical machine.
+		- It provides isolation, resource efficiency, and flexibility for various purposes such as development, testing, and server consolidation.
+  
+What is Cron:
+		- Cron is a tool that schedules and automates regular tasks on Unix-like systems.
+		- It makes it easy to perform routine actions at set times.
+
+What is Sudo:
+		- Sudo or superuser do is a command line tool that allows user level accounts to use commands with superuser level permissions when given permission by a high user.
+
+Commands:
+	ufw:
+		- sudo ufw status / verbose  [Shows the status of UFW]
+	user management:
+		- getent group GROUP_NAME [Get people in the given group]
+		- sudo useradd USER_NAME [Adds a new user to the system]
+		- sudo groupadd GROUP_NAME [Adds a new group to the system]
+		- sudo usermod -aG GROUP_NAME USER_NAME [Appends a given group to a given users list of groups]
+	system:
+		- hostnamectl [Shows the hostname information]
+		- sudo hostnamectl set-hostname [Sets the hostname of the system]
+		- sudo reboot [Reboots the system]
+		- lsblk [Shows the tree of the systems partitions]
+	sudo:
+		- dpkg -l | grep sudo [Shows if sudo is in the system package list]
+		- sudo visudo [Edits the sudo config]
+		- sudo service ssh status [Shows the status of a service]
+	cron:
+		- cd /usr/local/bin && vim monitoring.sh
+		- sudo crontab -u root -e 
+		- sudo cronstop
+		- sudo cronstart
+  
+Custom service:
+	Cloudflared:
+		- I installed this service for the convenience of remotely accessing SSH without relying on the raw IP address.
